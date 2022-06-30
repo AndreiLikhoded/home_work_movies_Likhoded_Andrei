@@ -2,7 +2,7 @@ package com.company.movies;
 
 import java.util.Arrays;
 
-public class Movie {
+public class Movie implements Comparable<Movie>{
     private String name;
     private int year;
     private String description;
@@ -47,13 +47,13 @@ public class Movie {
     }
 
     @Override
+    public int compareTo(Movie nameDirector) {
+        return this.getDirector().getFullName().compareTo(nameDirector.getDirector().getFullName());
+    }
+
+    @Override
     public String toString() {
-        return "Movie{" +
-                "name='" + name + '\'' +
-                ", year=" + year +
-                ", description='" + description + '\'' +
-                ", director=" + director +
-                ", cast=" + Arrays.toString(cast) +
-                '}';
+        String str = String.format("|%-42s|%5s |%-10s|%-17s| \n %s \n", name,year,description,director, Arrays.toString(cast) +" ");
+        return str;
     }
 }
