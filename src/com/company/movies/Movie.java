@@ -38,6 +38,9 @@ public class Movie {
     public Director getDirector() {
         return director;
     }
+    public String getDirectorName() {
+        return director.getFullName();
+    }
 
     public void setDirector(Director director) {
         this.director = director;
